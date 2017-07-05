@@ -1,0 +1,11 @@
+.centralize{
+	width: 300px;
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.table-title td{
+	font-size: 19px;
+	text-align: center
+}

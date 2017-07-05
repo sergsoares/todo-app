@@ -1,0 +1,54 @@
+<html>
+<head>
+	<title>TODO-APP</title>
+	<script src="lib/angular.min.js"></script>
+	<script src="app.js"></script>
+	<link rel="stylesheet" href="lib/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body ng-app="todoApp">
+  <div class="centralize" ng-controller="todoAppCtrl" >
+    <h2 class="title">Tarefas do Time Sergio</h2>
+	  		
+   	  <table class='table table-striped'>
+   	  		<thead>
+   	  			<tr class="table-title">
+   	  				<td>Tarefa</td>
+   	  				<td>Link</td>
+   	  			</tr>
+   	  		</thead>
+
+   	  		<tr ng-repeat="(key, value) in tarefas">
+   	  		  <td>{{value.numero}}</td>
+   	  		  <td> 
+   	  		    <a href="{{value.link}}" target="_blank">Link do Redmine #{{value.numero}}</a>
+   	  		  </td>
+   	  		  <td> 
+   	  		      <button 
+   	  		        type="button" 
+   	  		        ng-click="excluirTarefa(key)"
+   	  		        class="btn btn-default btn-sm"> DEL</button>
+   	  		  </td>
+   	  		</tr>
+			
+   	  </table>
+	  <input 
+	    ng-model="tarefa.numero" 
+	    class="form-control" 
+	    type="text" 
+	    placeholder="Numero da Tarefa. Ex:12545"
+	    maxlength="5" 
+	  />
+
+	  <!-- <input ng-model="tarefa.link" class="form-control" type="text" placeholder="Link"> -->
+	  <button 
+	    class="btn btn-primary" 
+	    ng-click="adicionarTarefa(tarefa)"
+	    ng-disabled="!tarefa || (tarefa.numero.length < 5)"
+	  > Adicionar Tarefa</button>
+	
+	<br/>
+  </div>
+</body>
+</html>
